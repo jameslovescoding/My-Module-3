@@ -12,39 +12,45 @@ html, body, div {
 
     /* Phase 1 */
     /* Your code here */
-
+    display: grid;
+    grid-template-areas:
+    "Header Header Header"
+    "Main Divider Sidebar"
+    "Footer Footer Footer";
+    grid-template-columns: 3fr 50px 1fr;
+    row-gap: 15px;
     /* Bonus Phase */
     /* Your code here */
 }
 .item-1 {
     background-color: #87a7b3; /* steel blue */
-
+    grid-area: Header;
     /* Phase 1 */
     /* Your code here */
 }
 .item-2 {
     background-color: #e1f1dd; /* light sea green */
-
+    grid-area: Main;
     /* Phase 1 */
     /* Your code here */
 }
 .item-3 {
     background-color: #cdc7be; /* grey */
-
+    grid-area: Sidebar;
     /* Phase 1 */
     /* Your code here */
 }
 .item-4 {
     background-color: #766161; /* brown */
     color: antiquewhite;
-
+    grid-area: Footer;
     /* Phase 1 */
     /* Your code here */
 }
 
 .divider {
     background-image: linear-gradient(to right, #e1f1dd, #cdc7be);
-
+    grid-area: Divider;
     /* Bonus Phase */
     /* Your code here */
 }
@@ -57,4 +63,10 @@ html, body, div {
 
     /* Phase 2 */
     /* Your code here */
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(3, 50px);
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
 }

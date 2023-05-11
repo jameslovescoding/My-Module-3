@@ -6,21 +6,26 @@ Paste your code for fetch requests here once you finish each task.
 /* =============== 1. Print the status code of the response =============== */
 
 // Your code here
+let res = await fetch("/products");
+console.log(res.status);
 
 
 
 /* ====== 2. Print true if the status of the response was successful ====== */
 
 // Your code here
+console.log(res.ok);
 
 
 
 /* =================== 3. Print the Content-Type Header =================== */
 
 // Your code here
+console.log(res.headers.get("Content-Type"));
 
 
 
 /* ============== 4. Print the body of the response as text =============== */
 
 // Your code here
+console.log(await res.text());

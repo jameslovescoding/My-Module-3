@@ -1,6 +1,9 @@
 const http = require('http');
 const fs = require("fs");
-const{ htmlRouter, dogs} = require("./starterRouter")
+const {
+  htmlRouter,
+  dogs
+} = require("./starterRouter")
 
 function getContentType(fileName) {
   const ext = fileName.split(".")[1];
@@ -35,17 +38,17 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "POST" && /dogs\/\d+\/delete/.test(req.url)) {
-    const [_,urlParts] = req.url.split("/dogs/");
-    const [id,__] = urlParts.split("/");
-    if(req.headers.auth !== "ckyut5wau0000jyv5bsrud90y") {
+    const [_, urlParts] = req.url.split("/dogs/");
+    const [id, __] = urlParts.split("/");
+    if (req.headers.auth !== "ckyut5wau0000jyv5bsrud90y") {
       console.log("unauth header")
       const htmlPage = fs.readFileSync("./views/error.html", 'utf-8');
       const resBody = htmlPage
-      .replace(/#{message}/g, 'Unauthorized request, check your request headers');
-        res.statusCode = 401;
-        res.setHeader("Content-Type", "text/html");
-        res.write(resBody);
-        return res.end();
+        .replace(/#{message}/g, 'Unauthorized request, check your request headers');
+      res.statusCode = 401;
+      res.setHeader("Content-Type", "text/html");
+      res.write(resBody);
+      return res.end();
     }
     const idxToDelete = dogs.findIndex(dog => dog.dogId == id);
     dogs.splice(idxToDelete, 1)
@@ -55,7 +58,7 @@ const server = http.createServer((req, res) => {
   }
 
   if (req.method === "GET" && req.url === "/api/dogs") {
-    res.setHeader("Content-Type","application/json")
+    res.setHeader("Content-Type", "application/json")
     res.write(JSON.stringify(dogs))
     return res.end()
   }

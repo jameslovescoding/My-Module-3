@@ -86,12 +86,87 @@ header {
 
 /* Your code here */
 
+@media (min-width: 851px) and (max-width: 1219px) {
+    .content {
+        flex-direction: row;
+    }
+    /* .sidebar {
+        flex-direction: column;
+        justify-content: space-between;
+    } */
+    .sidebar {
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-auto-flow: row;
+    }
+}
+
 /* ----- Phase 1 - Wide Screen ----- */
+@media (min-width: 1220px) {
+    .page {
+        flex-direction: row;
+    }
+    .content {
+        flex-direction: row;
+    }
+    .sidebar {
+        display: grid;
+        grid-template-rows: repeat(5, auto);
+        grid-auto-flow: row;
+    }
+    /* .sidebar {
+        flex-direction: column;
+        justify-content: space-between;
+    } */
+}
 
 /* Your code here */
 
 /* ===== PRINTING ===== */
 
+/* @media print {
+    header {
+        display: none;
+    }
+    .sidebar {
+        display: none;
+    }
+    .image-box {
+        display: none;
+    }
+    .content {
+        border: 0;;
+    }
+    .story-box {
+        background-color: white;
+        filter: none;
+        padding: 0px;
+    }
+} */
+
 /* Phase 2 */
 
 /* Your code here */
+
+@media print {
+    header {
+        display: none;
+    }
+    .sidebar {
+        display: none;
+    }
+    .image-box {
+        position: absolute;
+        top: 50px;
+        right: 75px;
+        width: 75px;
+    }
+    .content {
+        border: 0;;
+    }
+    .story-box {
+        background-color: white;
+        filter: none;
+        padding: 0px;
+    }
+}

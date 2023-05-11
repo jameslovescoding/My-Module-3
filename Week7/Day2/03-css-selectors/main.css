@@ -2,6 +2,33 @@
 
 /* ===== DO NOT EDIT BELOW THIS COMMENT ===== */
 
+/* Phase 1 - Select by id */
+#page-title {
+    font-weight: 700;
+}
+
+/* Phase 2 - Select by class name */
+.pagenum {
+    position: absolute;
+    right: 10px;
+    font-size: small;
+}
+
+/* Phase 3 - Select by type */
+p {
+    text-align: justify;
+    margin-top: .75em;
+    margin-bottom: .75em;
+    /* margin: .75em auto; */
+}
+
+pre {
+    /* margin-top: 100px;
+    margin-bottom: 100px; */
+    margin: 100px auto;
+    width: fit-content;
+}
+
 .noin {
     text-indent: 0em;
 }

@@ -1,15 +1,15 @@
 import {
-    deleteDog, 
-    getAllDogs, 
-    getDogNumberTwo, 
-    postNewDog,  
+    deleteDog,
+    getAllDogs,
+    getDogNumberTwo,
+    postNewDog,
     postNewDogV2
 } from "./your-code.js";
 
 const cbHandler = async (res) => {
     if(res.redirected) {
        return window.location.href = res.url
-    } 
+    }
 
     const [_, endpoint] = res.url.split("http://localhost:5001/");
     if(/dogs\/\d+\/delete/.test(endpoint)) {
@@ -17,11 +17,11 @@ const cbHandler = async (res) => {
         const startIdx = html.indexOf("<body>");
         const endIdx = html.indexOf("</body>");
         const body = html.slice(startIdx, endIdx + 7)
-        document.body.innerHTML = body 
+        document.body.innerHTML = body
     } else {
         window.location.href = `/${endpoint}`;
     }
-    
+
     return res
 };
 
@@ -29,7 +29,7 @@ const errorHandler = (e) => {
     console.log("ERROR: ", e)
 }
 
-const getAllDogsButton = document.querySelector("#get_dogs")
+const getAllDogsButton = document.querySelector("#get_dogs");
 const getDogTwoButton = document.querySelector("#get_dogs2");
 const postDogsButton = document.querySelector("#post_dogs");
 const postDogsV2Button = document.querySelector(".userinput_dog_submit");

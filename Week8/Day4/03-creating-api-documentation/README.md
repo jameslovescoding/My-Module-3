@@ -43,17 +43,19 @@ that API endpoints can use all HTTP verbs (`GET`, `POST`, `PUT`, `PATCH`,
 For example, to edit a specific post, the API endpoint could be
 `PATCH /posts/:postId`
 
-- Get all the posts
-- Create a new post
-- Edit a post
-- Create a new user
-- Get the comments for a post
-- Create a comment for a post
-- Edit a comment for a post
-- Delete a comment for a post
-- Add a like for a post
-- Remove a like for a post
-- Get all the posts of a user
-- Submit a search on posts
+| Meaning                       | HTTP Verb | Path Pattern                                     |
+| ------------------------      | --------- | ------------------------------------------------ |
+| Get all the posts             | GET       | /posts                                           |
+| Create a new post             | POST      | /posts                                           |
+| Edit a post                   | PUT/PATCH | /posts/:post-id                                  |
+| Create a new user             | POST      | /users                                           |
+| Get the comments for a post   | GET       | /posts/:post-id/comments                         |
+| Create a comment for a post   | POST      | /posts/:post-id/comments                         |
+| Edit a comment for a post     | PUT/PATCH | /comments/:comment-id                            |
+| Delete a comment for a post   | DELETE    | /comments/:comment-id                            |
+| Add a like for a post         | POST      | /posts/:post-id/likes                            |
+| Remove a like for a post      | POST      | /posts/:post-id/likes/:like-id/delete            |
+| Get all the posts of a user   | GET       | /users/:user-id/posts                            |
+| Submit a search on posts      | POST      | /posts/search                           |
 
 [starter]: https://github.com/appacademy/practice-for-week-08-creating-api-docs

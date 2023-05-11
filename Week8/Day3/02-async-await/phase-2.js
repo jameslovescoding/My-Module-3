@@ -3,7 +3,7 @@ function stretch(timeLeft) {
     if (timeLeft < 1000) {
 
       // if we dont have enough time to complete the action
-      // reject the promise with the reason 
+      // reject the promise with the reason
       reject('you dont have enough time to stretch')
 
     } else {
@@ -57,12 +57,23 @@ function liftWeights(timeLeft) {
 
 // refactor this function to handle Promises using async/await instead of
   // .then and .catch
-function workout(totalTime) {
-  stretch(totalTime)
-    .then(timeLeftAfterStretching => runOnTreadmill(timeLeftAfterStretching))
-    .then(timeLeftAfterRunning => liftWeights(timeLeftAfterRunning))
-    .then(res => console.log(`done working out with ${res/1000} seconds left`))
-    .catch(err => console.log('Error: ', err));
+async function workout(totalTime) {
+  // stretch(totalTime)
+  //   .then(timeLeftAfterStretching => runOnTreadmill(timeLeftAfterStretching))
+  //   .then(timeLeftAfterRunning => liftWeights(timeLeftAfterRunning))
+  //   .then(res => console.log(`done working out with ${res/1000} seconds left`))
+  //   .catch(err => console.log('Error: ', err));
+  try {
+    let timeLeftAfterStretching = await stretch(totalTime);
+    let timeLeftAfterRunning = await runOnTreadmill(timeLeftAfterStretching);
+    let timeLeftAfterLifting = await liftWeights(timeLeftAfterRunning);
+    console.log(`done working out with ${timeLeftAfterLifting/1000} seconds left`);
+  } catch (err) {
+    console.log(err);
+  }
+
+
+
 }
 
 
@@ -78,20 +89,20 @@ Comment in each invocation of your workout function below and run the file
     // Error:  you dont have enough time to stretch
 
 
-// workout(1000);
+//workout(1000);
   // should print out the following:
     // done stretching
     // Error:  you dont have enough time to run on treadmill
 
 
-// workout(2000);
+//workout(2000);
   // should print out the following:
     // done stretching
     // done running on treadmill
     // Error:  you dont have enough time to lift weights
 
 
-// workout(4000);
+//workout(4000);
   // should print out the following:
   //   done stretching
   //   done running on treadmill

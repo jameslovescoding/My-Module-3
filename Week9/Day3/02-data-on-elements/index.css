@@ -4,6 +4,44 @@ li {
     padding: 10px 15px;
     margin-bottom: 5px;
     border-radius: 25px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Your code here */
+
+li[data-type="drinks"] {
+    background-color: red;
+}
+
+li[data-type="bakery"] {
+    background-color: orange;
+}
+
+li[data-type="canned"] {
+    background-color: yellow;
+}
+
+li[data-type="dairy"] {
+    background-color: green;
+}
+
+li[data-type="frozen"] {
+    background-color: cyan;
+}
+
+li[data-type="meats"] {
+    background-color: blue;
+}
+
+li[data-type="produce"] {
+    background-color: purple;
+}
+
+li[data-type="toiletries"] {
+    background-color: darkgrey;
+}
+
+li[data-type="other"] {
+    background-color: black;
+}
